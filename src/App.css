@@ -1,0 +1,129 @@
+:root {
+  --primary-color: rgba(0, 92, 0, 0.5);
+  --secondary-color: rgb(0, 92, 0);
+  --time: 5s;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  transition: background-color 0.2s;
+}
+
+.time {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background-color: var(--secondary-color);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  animation: countdown 5s linear forwards;
+  transition: background-color 0.2s;
+}
+@keyframes countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.score {
+  position: fixed;
+  background-color: var(--secondary-color);
+  color: rgba(255, 255, 255, 0.8);
+  top: 25px;
+  left: 25px;
+  font-size: 1.5rem;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+.score > h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  margin-top: 4rem;
+  width: 40vw;
+}
+
+.word {
+  text-align: center;
+  color: var(--secondary-color);
+  transition: color 0.2s;
+}
+
+.options {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.option {
+  text-transform: uppercase;
+  background-color: var(--secondary-color);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  user-select: none;
+  transform: scale(1) rotate(0deg);
+  transition: 0.2s;
+}
+.option:hover {
+  transform: scale(1.1);
+}
+.option:active {
+  transform: scale(1.4);
+}
+.wrong {
+  background-color: rgb(184, 0, 0);
+  z-index: 9999;
+  --rotation: 5deg;
+  transform: rotate(var(--rotation)) scale(1);
+}
+.wrong:hover {
+  transform: rotate(var(--rotation)) scale(1.1) !important;
+}
+.wrong:active {
+  transform: rotate(var(--rotation)) scale(1.4) !important;
+}
+
+.over {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+  .wrapper {
+    width: 93vw;
+  }
+  .score {
+    height: 60px;
+    width: 60px;
+    top: 15px;
+    left: 15px;
+    font-size: 1.2rem;
+  }
+}
