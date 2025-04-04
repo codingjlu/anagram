@@ -70,7 +70,7 @@ function App() {
     if (gameOver) {
       clearTimeout(timer.current)
       document.querySelector(".time").style.animationPlayState = "paused"
-      window.umami.track("complete", { score })
+      window.umami.track("score-" + score)
     }
   }, [gameOver])
 
